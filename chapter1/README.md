@@ -3,7 +3,7 @@
 My first attempt was simply to loop through each charater, uses JS *Array.prototype.includes* to 
 check if the character is already contained in a unique array. Below is the code for the first
 attempt
-<pre><code>
+```JavaScript
 function containsUniqueCharacters(stringToCheck) {
     var stringArray = stringToCheck.split('');
     var uniqueArray = [];
@@ -20,7 +20,7 @@ function containsUniqueCharacters(stringToCheck) {
     }
     return isUnique;
 }
-</code></pre>
+```
 
 Consulting the solution provided two insights:
 * It's important to see if the string to be checked is ASCII or Unicode. If it is ASCII, place
@@ -31,7 +31,7 @@ each character, gets the  ASCII value and set the flag at that position to be tr
 I'm not sure how the function *Array.prototype.includes* is implemented in JavaScript, but the
 boolean flag array solution is probably faster if we can limit the string to be checked to be
 ASCII. The implementation for that would be 
-<pre><code>
+```JavaScript
 function containsUniqueCharactersImproved(stringToCheck) {
     if (stringToCheck.length > 256) {
         return false;
@@ -46,4 +46,4 @@ function containsUniqueCharactersImproved(stringToCheck) {
     }
     return true;
 }
-</pre></code>
+```
