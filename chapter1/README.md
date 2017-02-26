@@ -1,4 +1,4 @@
-1.1 - Implement an algorithm to determine if a string has all unique characters.
+### 1.1 - Implement an algorithm to determine if a string has all unique characters.
 
 My first attempt was simply to loop through each charater, uses JS *Array.prototype.includes* to 
 check if the character is already contained in a unique array. Below is the code for the first
@@ -10,7 +10,7 @@ function containsUniqueCharacters(stringToCheck) {
     var isUnique = true;
     var i = 0;
     while(isUnique && i < stringArray.length){
-        if (uniqueArray.includes(stringArray[i])) {
+        if (uniqueArray.indexOf(stringArray[i]) !== -1) {
             isUnique = false;
         }
         else {
@@ -45,5 +45,33 @@ function containsUniqueCharactersImproved(stringToCheck) {
         characterCheck[charCode] = true;
     }
     return true;
+}
+```
+### 1.2 Implement a function that reverses a string
+My initial attempt is to split the string into an array and use *Array.prototype.reduce*
+to reverse the string. This is a very JavaScripty way to do things, and the time complexity
+of the function is O(n), n being the length of the string.
+```JavaScript
+function reverse(stringToReverse) {
+    var stringArray = stringToReverse.split('');
+    var reversed = stringArray.reduce(function(acc, val) {
+        acc = val + acc;
+        return acc;
+    });
+    return reversed;
+}
+```
+Consulting the solution provides another method which swap positions of a pair of characters,
+leaving the middle character intact. The complexity in this case is O(n/2).
+```JavaScript
+function reverse2(stringToReverse) {
+    var stringArray = stringToReverse.split('');
+    var n = stringToReverse.length;
+    for(var i = 0; i < n/2; i++) {
+        var temp = stringArray[i];
+        stringArray[i] = stringArray[n-1-i];
+        stringArray[n-1-i] = temp;
+    } 
+    return stringArray.join('');
 }
 ```

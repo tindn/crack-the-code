@@ -5,7 +5,7 @@ function containsUniqueCharacters(stringToCheck) {
     var isUnique = true;
     var i = 0;
     while(isUnique && i < stringArray.length){
-        if (uniqueArray.includes(stringArray[i])) {
+        if (uniqueArray.indexOf(stringArray[i]) !== -1) {
             isUnique = false;
         }
         else {
@@ -31,7 +31,30 @@ function containsUniqueCharactersImproved(stringToCheck) {
     return true;
 }
 
+
+// Implement a function to reverse a string
+function reverse(stringToReverse) {
+    var stringArray = stringToReverse.split('');
+    var reversed = stringArray.reduce(function(acc, val) {
+        acc = val + acc;
+        return acc;
+    });
+    return reversed;
+}
+
+function reverse2(stringToReverse) {
+    var stringArray = stringToReverse.split('');
+    var n = stringToReverse.length;
+    for(var i = 0; i < n/2; i++) {
+        var temp = stringArray[i];
+        stringArray[i] = stringArray[n-1-i];
+        stringArray[n-1-i] = temp;
+    } 
+    return stringArray.join('');
+}
 module.exports = {
     containsUniqueCharacters: containsUniqueCharacters,
-    containsUniqueCharactersImproved: containsUniqueCharactersImproved
+    containsUniqueCharactersImproved: containsUniqueCharactersImproved,
+    reverse: reverse,
+    reverse2: reverse2
 };

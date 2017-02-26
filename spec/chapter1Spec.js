@@ -18,5 +18,16 @@ describe('unique characters expects', function(){
             'Keep going. You are almost there. Just a little more'
         )).toBe(false);
     })
+});
+
+describe('reverse string expects', function() {
+    it('string "test" to be "tset"', function() {
+        expect(chapter1.reverse('test')).toBe('tset');
+        expect(chapter1.reverse2('test')).toBe('tset');
+    });
+    it('string "abcde" to be "edcba"', function(){
+        expect(chapter1.reverse('abcde')).toBe('edcba');
+        expect(chapter1.reverse2('abcde')).toBe('edcba');
+    })
 })
 
