@@ -52,9 +52,29 @@ function reverse2(stringToReverse) {
     } 
     return stringArray.join('');
 }
+
+
+// Given two strings, determine if one is a permutation of the other
+function arePermutations(string1, string2) {
+    if (string1.length !== string2.length) {
+        return false;
+    }
+    var stringArray1 = string1.split('');
+    var stringArray2 = string2.split('');
+    stringArray1.sort();
+    stringArray2.sort();
+    for(var i = 0; i < stringArray1.length; i++) {
+        if (stringArray1[i] !== stringArray2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 module.exports = {
     containsUniqueCharacters: containsUniqueCharacters,
     containsUniqueCharactersImproved: containsUniqueCharactersImproved,
     reverse: reverse,
-    reverse2: reverse2
+    reverse2: reverse2,
+    arePermutations: arePermutations
 };

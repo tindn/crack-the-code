@@ -29,5 +29,17 @@ describe('reverse string expects', function() {
         expect(chapter1.reverse('abcde')).toBe('edcba');
         expect(chapter1.reverse2('abcde')).toBe('edcba');
     })
+});
+
+describe('check if two strings are permuatations', function() {
+    it('strings "abcde" and "edcba" are permutations', function() {
+        expect(chapter1.arePermutations('abcde', 'edcba')).toBe(true);
+    });
+    it('strings "abcde" and "abcce" are not permutations', function(){
+        expect(chapter1.arePermutations('abcde','abcce')).toBe(false);
+    });
+    it('strings "abccd" and "cabcd" are permutations', function() {
+        expect(chapter1.arePermutations('abccd', 'cabcd')).toBe(true);
+    })
 })
 

@@ -75,3 +75,30 @@ function reverse2(stringToReverse) {
     return stringArray.join('');
 }
 ```
+
+### 1.3 Implement an algorithm to determine if two strings are permutations
+
+First, checking the lengths of the two strings, if the lengths are different, 
+the two strings are not permutations.
+
+My initial attmpt did not taken into account repeated characters. So I consulted
+with the solution. The function will first sort the to strings and then loop through
+the first sorted array and check against the second array.
+```JavaScript
+function arePermutations(string1, string2) {
+    if (string1.length !== string2.length) {
+        return false;
+    }
+    var stringArray1 = string1.split('');
+    var stringArray2 = string2.split('');
+    stringArray1.sort();
+    stringArray2.sort();
+    for(var i = 0; i < stringArray1.length; i++) {
+        if (stringArray1[i] !== stringArray2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+```
