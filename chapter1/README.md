@@ -100,5 +100,24 @@ function arePermutations(string1, string2) {
     }
     return true;
 }
+```
 
+### 1.4 Write a method to replace all spaces in a string with '%20'
+
+I first split the string into an array and use *Array.prototype.reduce* to 
+replace spaces with '%20'. 
+
+```JavaScript
+function replaceSpaces(string) {
+    var stringArray = string.split('');
+    var newStringArray = stringArray.reduce(function(acc, val){
+        if(val.charCodeAt(0) === 32) {
+            acc.push('%20');
+        } else {
+            acc.push(val);
+        }
+        return acc;
+    },[]);
+    return newStringArray.join('');
+}
 ```

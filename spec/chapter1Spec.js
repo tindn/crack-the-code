@@ -40,6 +40,15 @@ describe('check if two strings are permuatations', function() {
     });
     it('strings "abccd" and "cabcd" are permutations', function() {
         expect(chapter1.arePermutations('abccd', 'cabcd')).toBe(true);
-    })
-})
+    });
+});
+
+describe('replaces spaces in a string with "%20"', function() {
+    it('string "a b c d e" will be "a%20b%20c%20d%20e"', function() {
+        expect(chapter1.replaceSpaces('a b c d e')).toBe('a%20b%20c%20d%20e');
+    });
+    it('string "a b c  " to be "a%20b%20c%20%20"', function(){
+        expect(chapter1.replaceSpaces('a b c  '));
+    });
+});
 

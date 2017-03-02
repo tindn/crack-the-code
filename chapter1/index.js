@@ -71,10 +71,24 @@ function arePermutations(string1, string2) {
     return true;
 }
 
+function replaceSpaces(string) {
+    var stringArray = string.split('');
+    var newStringArray = stringArray.reduce(function(acc, val){
+        if(val.charCodeAt(0) === 32) {
+            acc.push('%20');
+        } else {
+            acc.push(val);
+        }
+        return acc;
+    },[]);
+    return newStringArray.join('');
+}
+
 module.exports = {
     containsUniqueCharacters: containsUniqueCharacters,
     containsUniqueCharactersImproved: containsUniqueCharactersImproved,
     reverse: reverse,
     reverse2: reverse2,
-    arePermutations: arePermutations
+    arePermutations: arePermutations,
+    replaceSpaces: replaceSpaces
 };
